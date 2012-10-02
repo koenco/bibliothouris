@@ -323,11 +323,8 @@ function bibliothouris_views_bringbookback($lendedbookid, $userid, $redirect = T
 
   update_status($bookid);
 
-  drupal_set_message('Succesfully brought back the book.');
-
   if ($redirect) {
-
-
+    drupal_set_message('Succesfully brought back the book.');
     drupal_goto('user/' . $userid);
   }
 
@@ -337,12 +334,16 @@ function bibliothouris_views_lendabook($bookid, $userid, $redirect = TRUE, $star
   $numberOfBooks = numberOfLendedBooks($userid);
   if ($numberOfBooks < 3) {
     if (isBookLended($bookid)) {
-      drupal_set_message('This book is already lend out.', 'error');
+      if ($redirect) {
+        drupal_set_message('This book is already lend out.', 'error');
+      }
       $id = 0;
     }
     else {
       $id = create_lended_book($bookid, $userid, $start_date);
-      drupal_set_message('Succesfully lend out the book.');
+      if ($redirect) {
+        drupal_set_message('Succesfully lend out the book.');
+      }
     }
   }
   else {
