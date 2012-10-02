@@ -333,7 +333,7 @@ function bibliothouris_views_bringbookback($lendedbookid, $userid, $redirect = T
 
 }
 
-function bibliothouris_views_lendabook($bookid, $userid, $redirect = TRUE, $start_date) {
+function bibliothouris_views_lendabook($bookid, $userid, $redirect = TRUE, $start_date = REQUEST_TIME) {
   $numberOfBooks = numberOfLendedBooks($userid);
   if ($numberOfBooks < 3) {
     if (isBookLended($bookid)) {

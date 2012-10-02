@@ -8,7 +8,7 @@ class UserTestCase extends SimpleTestCloneTestCase {
   return array(
     'name' => 'User test',
     'description' => 'Test creating user',
-    'group' => 'Bibliotouris',
+    'group' => 'Bibliothouris',
     );
   }
 
