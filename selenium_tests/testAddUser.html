@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>testAddUser</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">testAddUser</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/bibliothouris/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>bibliothouris/admin/people/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-mail</td>
+	<td>test@test.test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-national-number-und-0-value</td>
+	<td>89041727347</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-date-of-birth-und-0-value-datepicker-popup-0</td>
+	<td>17/04/1989</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-last-name-und-0-value</td>
+	<td>testLastName</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-first-name-und-0-value</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-first-name-und-0-value</td>
+	<td>testFirstName</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-street-number-und-0-value</td>
+	<td>testStreet</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-postal-code-und-0-value</td>
+	<td>3000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=edit-field-city-und-0-value</td>
+	<td>testCity</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=edit-submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Since you did not provide a password, it was generated automatically for this account.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=span.home-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Show all members</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=tr.even.views-row-last &gt; td.views-field.views-field-field-last-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>testLastName</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=tr.even.views-row-last &gt; td.views-field.views-field-field-first-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>testFirstName</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
