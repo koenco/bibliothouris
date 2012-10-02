@@ -5,3 +5,4 @@ package = Bibliothouris
 dependencies[] = bibliothouris_user
 dependencies[] = date
 dependencies[] = phone
+files[] = bibliothouris_data.test

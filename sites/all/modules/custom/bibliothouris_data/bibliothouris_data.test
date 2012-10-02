@@ -1,0 +1,55 @@
+<?php
+module_load_include('test', 'simpletest_clone');
+
+class BibliothourisDataTestCase extends SimpleTestCloneTestCase
+{
+
+  public static function getInfo()
+  {
+    return array(
+      'name' => 'Import data test',
+      'description' => 'Test the import of data',
+      'group' => 'Bibliothouris',
+    );
+  }
+
+  public function setUp()
+  {
+    parent::setup('bibliothouris_data');
+  }
+
+  function testDataImport()
+  {
+    $query = db_query('SELECT field_last_name_value
+      FROM field_data_field_last_name WHERE entity_id = 1')->fetchCol();
+    $this->assertEqual('Crijns', $query[0], 'User found');
+
+    $query = db_query('SELECT field_first_name_value
+      FROM field_data_field_first_name WHERE entity_id = 1')->fetchCol();
+    $this->assertEqual('Frank', $query[0], 'User found');
+
+    $query = db_query('SELECT field_street_number_value
+      FROM field_data_field_street_number WHERE entity_id = 3')->fetchCol();
+    $this->assertEqual('Kerkstraat 9', $query[0], 'Street + number found');
+
+    $query = db_query('SELECT holiday_name FROM bibliothouris_data_holiday')->fetchCol();
+    $holidays = array
+    ('Nieuwjaar',
+      'Pasen',
+      'Paasmaandag',
+      'Feest van de Arbeid',
+      'O.H. Hemelvaart',
+      'Pinksteren',
+      'Pinkstermaandag',
+      'Nationale Feestdag',
+      'O.L.V. Hemelvaart',
+      'Allerheiligen',
+      'Wapenstilstand',
+      'Kerstmis',
+    );
+
+    $this->assertEqual($holidays, $query, 'Holidays match');
+
+  }
+
+}
