@@ -28,7 +28,7 @@ chown www-data:www-data -R files
 drush en alphorn -y
 drush vset theme_default alphorn
 
-drush en uuid diff devel devel_generate masquerade simpletest fe_block entitycache views_ui node_export date date_popup uuid_features phone genpass email_registration autoassignrole administerusersbyrole simpletest_clone omega_tools auto_nodetitle references user_reference node_reference statistics -y
+drush en uuid diff devel devel_generate masquerade simpletest fe_block entitycache views_ui node_export date date_popup uuid_features phone genpass email_registration autoassignrole administerusersbyrole simpletest_clone omega_tools auto_nodetitle references user_reference node_reference statistics clientside_validation_field_validation field_validation_ui -y
 
 drush en bibliotouris_book -y
 drush en bibliothouris_user -y
@@ -39,11 +39,13 @@ drush fr bibliotouris_book -y
 drush en bibliothouris_views -y
 drush fr bibliothouris_views -y
 
-drush en bibliothouris_data -y
+drush en bibliothouris_clientside_validation
 
 drush ucrt emp --mail="emp@emp.be" --password="emp"
 drush urol employee emp
 
 drush ucrt member --mail="member@member.be" --password="member"
 
-drush node-export-import --file=$document_root/$install_folder/sites/all/modules/custom/data/books.export 
+drush node-export-import --file=$document_root/$install_folder/sites/all/modules/custom/data/books.export
+
+drush en bibliothouris_data -y
