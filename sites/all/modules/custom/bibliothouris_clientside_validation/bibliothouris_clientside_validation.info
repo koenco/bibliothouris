@@ -1,0 +1,15 @@
+name = bibliothouris_clientside_validation
+description = Provides custom clientside validation
+core = 7.x
+package = Features
+php = 5.2.4
+version = 7.x-1.0
+project = bibliothouris_clientside_validation
+dependencies[] = ctools
+dependencies[] = field_validation
+dependencies[] = strongarm
+features[ctools][] = field_validation:default_field_validation_rules:2
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[field_validation_rule][] = only_numeric_values
+features[variable][] = clientside_validation_default_settings

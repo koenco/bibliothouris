@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the bibliothouris_clientside_validation feature.
+ */
+
+include_once 'bibliothouris_clientside_validation.features.inc';
