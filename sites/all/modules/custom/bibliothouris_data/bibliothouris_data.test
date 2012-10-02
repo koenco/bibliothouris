@@ -50,6 +50,9 @@ class BibliothourisDataTestCase extends SimpleTestCloneTestCase
 
     $this->assertEqual($holidays, $query, 'Holidays match');
 
+    $query = db_query('SELECT field_last_name_value
+      FROM field_data_field_last_name')->fetchCol();
+    print_r($query);
   }
 
 }
