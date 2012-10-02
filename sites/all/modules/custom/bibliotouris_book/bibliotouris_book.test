@@ -15,7 +15,7 @@ class IsbnValidatorTestCase extends SimpleTestCloneTestCase {
     return array(
       'name' => 'ISBN Validator',
       'description' => 'Test the ISBN validator',
-      'group' => 'Bibliotouris',
+      'group' => 'Bibliothouris',
     );
   }
 
@@ -86,7 +86,7 @@ class BibliothourisBookTestCase extends SimpleTestCloneTestCase {
     return array(
       'name' => 'Book test',
       'description' => 'Test the book content type',
-      'group' => 'Bibliotouris',
+      'group' => 'Bibliothouris',
     );
   }
 

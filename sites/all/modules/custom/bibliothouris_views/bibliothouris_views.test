@@ -15,7 +15,7 @@ class BibliothourisFineTestCase extends SimpleTestCloneTestCase {
     return array(
       'name' => 'Fine Testcase',
       'description' => 'A fine testcase to test fines.',
-      'group' => 'Bibliotouris',
+      'group' => 'Bibliothouris',
     );
   }
 
