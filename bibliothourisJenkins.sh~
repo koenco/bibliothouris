@@ -23,8 +23,6 @@ git pull origin master
 
 drush site-install --db-url=mysql://$mysql_username:$mysql_password@$mysql_db --account-name=$site_admin --account-pass=$site_admin_pass --site-name=$site_name -y
 
-cd sites
-mkdir files
 #
 # comment the chmod when deploying
 # or maybe this will fix permissions

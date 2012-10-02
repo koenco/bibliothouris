@@ -17,10 +17,6 @@ site_name='Bibliothouris_jenkins'		# the site's name
 
 cd $document_root/$install_folder
 
-git init
-git remote add origin https://github.com/koenco/bibliothouris.git
-git pull origin master
-
 drush site-install --db-url=mysql://$mysql_username:$mysql_password@$mysql_db --account-name=$site_admin --account-pass=$site_admin_pass --site-name=$site_name -y
 
 #
