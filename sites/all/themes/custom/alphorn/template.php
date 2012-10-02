@@ -73,7 +73,7 @@ function alphorn_preprocess_user_profile(&$variables) {
 }
 
 function alphorn_preprocess_node(&$variables) {
-  $status = $variables['content']['field_status'][0]['#markup'];
+ $status = $variables['content']['field_status'][0]['#markup'];
  if ($status == "Available") {
    $class = 'green';
  } else {
@@ -84,7 +84,7 @@ function alphorn_preprocess_node(&$variables) {
 }
 
 function alphorn_preprocess_views_view_table(&$vars){
-//kpr($vars);
+//kpr($vars['result']);
   if($vars['view']->name=="borrowed_books"){
     foreach($vars['rows'] as $key => $row){
       if($row['field_fine']!='€ 0'){
