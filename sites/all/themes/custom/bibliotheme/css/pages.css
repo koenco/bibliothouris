@@ -91,7 +91,7 @@ body {
 }
 
 .block-title {
-    display: none;
+    /*display: none;*/
 }
 
 .region-header {
@@ -105,10 +105,15 @@ body {
     background-color: transparent;
 }
 
+#block-menu-menu-main-menu-custom .block-title {
+    display: none;
+}
+
 #block-menu-menu-main-menu-custom ul {
-    margin: 35px 0;
+    margin: 0px;
+    margin-left: 20px;
     padding: 0;
-    font: 12px Verdana;
+    font: 20px Verdana;
     list-style-type: none;
 }
 
@@ -131,6 +136,7 @@ body {
  */
 
 #main {
+    padding-top: 0px;
 }
 
 /*
