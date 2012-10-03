@@ -178,3 +178,7 @@ h2.block-title {
 #block-views-top-10-viewed-books-block a:link, #block-views-top-10-viewed-books-block a:visited, #block-views-top-10-borrowed-books-block a:link, #block-views-top-10-borrowed-books-block a:visited {
     color: #000000;
 }
+
+.views-view-grid {
+    border: 0px;
+}
