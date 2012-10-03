@@ -76,7 +76,6 @@ function autocomplete_user_first_name($string = '') {
       $value = $query->condition('field_last_name_value', '%' . $_POST['lastname'] . '%', 'LIKE');
       $value = $query->range(0, 10)
         ->execute();
-      $data = array();
 
       foreach ($value as $val) {
         $items[$val->field_first_name_value] = check_plain($val->field_first_name_value);
@@ -106,7 +105,6 @@ function autocomplete_user_last_name($string = '') {
       $value = $query->condition('field_last_name_value', '%' . $_POST['lastname'] . '%', 'LIKE');
       $value = $query->range(0, 10)
         ->execute();
-      $data = array();
 
       foreach ($value as $val) {
         $items[$val->field_last_name_value] = check_plain($val->field_last_name_value);
@@ -136,15 +134,11 @@ function bibliothouris_views_block_view_alter(&$data, $block) {
     ///Only works first time table is made
     $data['content']['#markup'] = str_replace('%5Bbib%3Auid%5D', arg(1), $data['content']['#markup']);
   }
-  if (isset($data['subject']) && $data['subject'] == 'Borrowed books') {
-    //kpr($data['content']['#markup']);die;
-    //$data['content']['#markup'] = str_replace('%5Bbib%3Afine%5D', calculateFine(), $data['content']['#markup']);
-  }
+
 }
 
 function bibliothouris_views_views_pre_render(&$view) {
   if ($view->name == 'borrowed_books') {
-    //kpr($view);
     foreach ($view->result as $res) {
       $startdate = strtotime($res->field_field_start_date[0]['raw']['value']);
       $duedate = strtotime(date("Y-m-d", $startdate) . " +3 week");
@@ -183,7 +177,6 @@ function bibliothouris_views_views_pre_render(&$view) {
     }
   }
   if ($view->name == 'overdue_books') {
-   // kpr($view);
     foreach ($view->result as $res) {
       $startdate = strtotime($res->field_field_start_date[0]['raw']['value']);
       $duedate = strtotime(date("Y-m-d", $startdate) . " +3 week");
@@ -237,7 +230,6 @@ function getWorkingDays($startDate, $endDate, $holidays) {
   $endDate = strtotime($endDate);
   $startDate = strtotime($startDate);
 
-
   //The total number of days between the two dates. We compute the no. of seconds and divide it to 60*60*24
   //We add one to inlude both dates in the interval.
   $days = ($endDate - $startDate) / 86400 + 1;
@@ -281,7 +273,7 @@ function getWorkingDays($startDate, $endDate, $holidays) {
   }
 
   //The no. of business days is: (number of weeks between the two dates) * (5 working days) + the remainder
-//---->february in none leap years gave a remainder of 0 but still calculated weekends between first and last day, this is one way to fix it
+  //---->february in none leap years gave a remainder of 0 but still calculated weekends between first and last day, this is one way to fix it
   $workingDays = $no_full_weeks * 5;
   if ($no_remaining_days > 0) {
     $workingDays += $no_remaining_days;
@@ -299,12 +291,6 @@ function getWorkingDays($startDate, $endDate, $holidays) {
   return $workingDays;
 }
 
-/*
- * $holidays=array("2008-12-25","2008-12-26","2009-01-01");
- *
- * echo getWorkingDays("2008-12-22","2009-01-02",$holidays)
-*/
-
 function bibliothouris_views_bringbookback($lendedbookid, $userid, $redirect = TRUE, $return_date = REQUEST_TIME) {
   $node = node_load($lendedbookid);
   $node->field_return_date = array(
@@ -319,7 +305,7 @@ function bibliothouris_views_bringbookback($lendedbookid, $userid, $redirect = T
   );
   node_save($node);
 
-  $bookid = db_query("SELECT field_book_nid FROM field_data_field_book WHERE entity_id = :eid", array('eid' => $lendedbookid))->fetchField();
+  $bookid = $node->field_book['und'][0]['nid'];
 
   update_status($bookid);
 
@@ -348,7 +334,7 @@ function bibliothouris_views_lendabook($bookid, $userid, $redirect = TRUE, $star
   }
   else {
     $id = 0;
-    drupal_set_message('User already has ' . $numberOfBooks . ' books', 'error');
+    drupal_set_message(check_plain('User already has ' . $numberOfBooks . ' books', 'error'));
   }
   if ($redirect) {
     drupal_goto('user/' . $userid);

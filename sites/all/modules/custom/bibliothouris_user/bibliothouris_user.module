@@ -35,7 +35,6 @@ function hide_roles(&$form) {
 
   $form['account']['roles'][$authenticated_user]['#access'] = FALSE;
 
-
 }
 
 function select_automatic_email(&$form) {

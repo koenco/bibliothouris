@@ -1,18 +1,5 @@
 <?php
 
-/**
- * @file
- * This file is empty by default because the base theme chain (Alpha & Omega) provides
- * all the basic functionality. However, in case you wish to customize the output that Drupal
- * generates through Alpha & Omega this file is a good place to do so.
- *
- * Alpha comes with a neat solution for keeping this file as clean as possible while the code
- * for your subtheme grows. Please read the README.txt in the /preprocess and /process subfolders
- * for more information on this topic.
- */
- 
-
-
 function alphorn_preprocess_html(&$vars) {
   $file = theme_get_setting('theme_color') . '-style.css';
   drupal_add_css(path_to_theme() . '/css/' . $file, array(
@@ -21,7 +8,6 @@ function alphorn_preprocess_html(&$vars) {
     'browsers' => array(),
     'preprocess' => FALSE
   ));
-  $vars['page']['#children'] = str_replace(' <h1 class="title" id="page-title">emp</h1>', '', $vars['page']['#children']);
 }
 
 function alphorn_preprocess_user_profile(&$variables) {
@@ -83,8 +69,8 @@ function alphorn_preprocess_node(&$variables) {
 
 }
 
+// change text color to red when a
 function alphorn_preprocess_views_view_table(&$vars){
-//kpr($vars['result']);
   if($vars['view']->name=="borrowed_books"){
     foreach($vars['rows'] as $key => $row){
       if($row['field_fine']!='€ 0'){
