@@ -59,14 +59,15 @@ function bibliotheme_preprocess_user_profile(&$variables) {
 }
 
 function bibliotheme_preprocess_node(&$variables) {
-  $status = $variables['content']['field_status'][0]['#markup'];
-  if ($status == "Available") {
-    $class = 'green';
-  } else {
-    $class = 'red';
+  if (isset($variables['content']['field_status'])) {
+    $status = $variables['content']['field_status'][0]['#markup'];
+    if ($status == "Available") {
+      $class = 'green';
+    } else {
+      $class = 'red';
+    }
+    $variables['content']['field_status'][0]['#markup'] = "<div class='$class'>$status</div>";
   }
-  $variables['content']['field_status'][0]['#markup'] = "<div class='$class'>$status</div>";
-
 }
 
 // change text color to red when a fine has to be paid

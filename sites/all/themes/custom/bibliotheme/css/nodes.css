@@ -14,6 +14,7 @@
 }
 
 .node .node-title { /* Node title */
+    display: none;
 }
 
 .node .user-picture { /* The picture of the node author */
@@ -38,6 +39,27 @@
 }
 
 .node-teaser { /* A node displayed as teaser */
+    text-align: center;
+    -moz-transition:  -moz-box-shadow, -moz-transform 1s;
+}
+
+.node-teaser:hover {
+    z-index: 1;
+    -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    transform: scale(1.5);
+    background-color: #ffffff;
+}
+
+.teaser-grid {
+    border: 0px;
+}
+
+.views-view-grid {
+    border: 0px;
 }
 
 /*
