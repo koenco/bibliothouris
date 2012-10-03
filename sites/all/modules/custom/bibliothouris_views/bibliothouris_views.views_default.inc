@@ -350,6 +350,14 @@ function bibliothouris_views_views_default_views() {
   $handler->display->display_options['filters']['field_return_date_value']['table'] = 'field_data_field_return_date';
   $handler->display->display_options['filters']['field_return_date_value']['field'] = 'field_return_date_value';
   $handler->display->display_options['filters']['field_return_date_value']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_return_date_value']['group'] = 1;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'lended_book' => 'lended_book',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
