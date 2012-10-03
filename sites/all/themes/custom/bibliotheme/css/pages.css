@@ -182,9 +182,10 @@ table {
     border: none;
 }
 
-th {
+th, th a:link {
     background-color: #fff;
     text-align: center;
+    color: #000000;
 }
 td, th {
     border: 1px solid #000000;
@@ -197,6 +198,10 @@ tr.even, tr.odd, td.active { /* Some tables have rows marked even or odd. */
 td a {
     color: #000000;
     text-decoration: none;
+}
+
+.views-field-field-fine {
+    text-align: center;
 }
 
 div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
