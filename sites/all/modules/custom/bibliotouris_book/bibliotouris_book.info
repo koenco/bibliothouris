@@ -22,6 +22,7 @@ features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[fe_block_settings][] = menu-menu-navigation-custom
 features[fe_block_settings][] = system-navigation
+features[fe_block_settings][] = user-login
 features[fe_block_settings][] = views--exp-view_all_books-page
 features[features_api][] = api:1
 features[field][] = node-book-field_author_first_name

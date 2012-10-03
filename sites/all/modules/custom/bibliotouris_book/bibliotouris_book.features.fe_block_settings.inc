@@ -22,6 +22,10 @@ function bibliotouris_book_default_fe_block_settings() {
       'delta' => 'navigation',
       'module' => 'system',
     ),
+    'user-login' => array(
+      'delta' => 'login',
+      'module' => 'user',
+    ),
     'views--exp-view_all_books-page' => array(
       'delta' => '-exp-view_all_books-page',
       'module' => 'views',
@@ -55,6 +59,20 @@ function bibliotouris_book_default_fe_block_settings() {
     'custom' => '0',
     'visibility' => '1',
     'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['user-login'] = array(
+    'module' => 'user',
+    'delta' => 'login',
+    'theme' => 'bartik',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'sidebar_first',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
     'title' => '',
     'cache' => -1,
   );
@@ -106,6 +124,20 @@ function bibliotouris_book_default_fe_block_settings() {
     'cache' => -1,
   );
 
+  $theme['user-login'] = array(
+    'module' => 'user',
+    'delta' => 'login',
+    'theme' => 'bibliotheme',
+    'status' => '1',
+    'weight' => '-14',
+    'region' => 'sidebar_first',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'title' => '',
+    'cache' => -1,
+  );
+
   $theme['views--exp-view_all_books-page'] = array(
     'module' => 'views',
     'delta' => '-exp-view_all_books-page',
@@ -149,6 +181,20 @@ function bibliotouris_book_default_fe_block_settings() {
     'custom' => '0',
     'visibility' => '1',
     'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['user-login'] = array(
+    'module' => 'user',
+    'delta' => 'login',
+    'theme' => 'seven',
+    'status' => '1',
+    'weight' => '10',
+    'region' => 'content',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
     'title' => '',
     'cache' => -1,
   );
