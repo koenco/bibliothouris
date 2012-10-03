@@ -200,6 +200,10 @@ td a {
     text-decoration: none;
 }
 
+.item-list ul li a:link {
+    color: #000000;
+}
+
 .views-field-field-fine {
     text-align: center;
 }
