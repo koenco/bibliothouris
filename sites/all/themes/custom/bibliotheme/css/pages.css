@@ -20,7 +20,7 @@ body {
   padding: 0;
   background-color: #666;
   font-size: 85%;
-}
+ }
 
 #page {
 }
@@ -129,6 +129,23 @@ body {
     background-color: #eee;
     color: #47a;
     text-decoration: none;
+
+}
+
+#block-menu-menu-main-menu-custom ul li {
+    -moz-transition: -moz-transform 1s
+}
+
+#block-menu-menu-main-menu-custom ul li:hover {
+    -moz-transform:scale(1.25);
+}
+
+tr, tr a {
+    -moz-transition: color 0.5s;
+}
+
+tr:hover, tr a:hover {
+    color:#808080;
 }
 
 /*
@@ -145,6 +162,10 @@ body {
 
 #content {
     background-color: #e4e4e4;
+    border:2px solid;
+    border-radius:25px;
+    -moz-border-radius:25px; /* Firefox 3.6 and earlier */
+}
 
 }
 
@@ -307,4 +328,12 @@ span.field-label { /* The inline field label used by the Fences module */
  */
 
 .region-bottom { /* Wrapper for any blocks placed in the page bottom region */
+}
+
+.red {
+    color: #ff0000;
+}
+
+.green {
+    color: #008000;
 }

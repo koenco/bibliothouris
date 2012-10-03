@@ -115,14 +115,18 @@ h2.block-title {
 }
 
 #block-menu-menu-navigation-custom {
+    border:2px solid black;
+    border-radius:25px;
     background-color: #CCC;
     color: #FFF;
 }
+
 #block-menu-menu-navigation-custom h2{
     margin-left: 10px;
     border-bottom: 1px solid #FFF;
     width: 200px;
 }
+
 #block-menu-menu-navigation-custom ul li.leaf a,#block-menu-menu-navigation-custom ul li.leaf a:visited, #block-menu-menu-navigation-custom ul li.leaf a:link  {
     color: #FFF;
     text-decoration: none;
@@ -134,7 +138,6 @@ h2.block-title {
     list-style-image: none;
     list-style-type: none;
 }
-
 
 #block-system-user-menu {
     /* "User menu" block for Drupal user menu */
