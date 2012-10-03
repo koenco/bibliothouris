@@ -99,7 +99,6 @@ function autocomplete_book_isbn($string = '') {
       $value = $query->condition('n.title', '%' . $_POST['title'] . '%', 'LIKE');
       $value = $query->range(0, 10)
         ->execute();
-      $data = array();
 
       foreach ($value as $val) {
         $items[$val->field_isbn_value] = check_plain($val->field_isbn_value);
@@ -134,7 +133,6 @@ function autocomplete_book_title($string = '') {
     $value = $query->condition('n.title', '%' . $_POST['title'] . '%', 'LIKE');
     $value = $query->range(0, 10)
       ->execute();
-    $data = array();
 
     foreach ($value as $val) {
       $items[$val->title] = check_plain($val->title);
@@ -171,7 +169,6 @@ function autocomplete_book_lastname($string = '') {
       $value = $query->condition('n.title', '%' . $_POST['title'] . '%', 'LIKE');
       $value = $query->range(0, 10)
         ->execute();
-      $data = array();
 
       foreach ($value as $val) {
         $items[$val->field_author_last_name_value] = check_plain($val->field_author_last_name_value);
@@ -194,7 +191,6 @@ function autocomplete_book_firstname($string = '') {
     $items = array();
     if (isset($string)) {
 
-
       $query = db_select('field_data_field_author_first_name', 'fn');
       $value = $query->join('field_data_field_author_last_name', 'ln', 'ln.entity_id = fn.entity_id');
       $value = $query->join('field_data_field_isbn', 'isb', 'ln.entity_id = isb.entity_id');
@@ -206,7 +202,6 @@ function autocomplete_book_firstname($string = '') {
       $value = $query->condition('n.title', '%' . $_POST['title'] . '%', 'LIKE');
       $value = $query->range(0, 10)
         ->execute();
-      $data = array();
 
       foreach ($value as $val) {
         $items[$val->field_author_first_name_value] = check_plain($val->field_author_first_name_value);
@@ -260,7 +255,6 @@ function checkisbn($isbn) {
       $sum = $isbn[0] + ($isbn[1] * 3) + $isbn[2] + ($isbn[3] * 3) +
         $isbn[4] + ($isbn[5] * 3) + $isbn[6] + ($isbn[7] * 3) +
         $isbn[8] + ($isbn[9] * 3) + $isbn[10] + ($isbn[11] * 3);
-
 
       $mod = $sum % 10;
 
