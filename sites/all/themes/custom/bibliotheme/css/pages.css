@@ -15,7 +15,8 @@
 body {
   margin: 0;
   padding: 0;
-    background-color: #666;
+  background-color: #666;
+  font-size: 85%;
 }
 
 #page {
@@ -106,6 +107,7 @@ body {
 }
 
 .breadcrumb { /* The path to the current page in the form of a list of links */
+    display: none;
 }
 .breadcrumb ol {
   margin: 0;
@@ -126,13 +128,30 @@ h2.comment-form, /* Comment form heading */
 h3.title { /* Comment title */
   margin: 0;
 }
-
-tr.even { /* Some tables have rows marked even or odd. */
-  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+table {
+    width: 100%;
+    border: 1px solid #000000;
 }
 
-tr.odd {
+#user-profile-info td, #user-profile-info {
+    border: none;
+}
+
+th {
+    background-color: #fff;
+    text-align: center;
+}
+td, th {
+    border: 1px solid #000000;
+}
+tr.even, tr.odd, td.active { /* Some tables have rows marked even or odd. */
   /* background-color: #eee; */ /* Drupal core uses a #eee background */
+    background-color: #fff;
+}
+
+td a {
+    color: #000000;
+    text-decoration: none;
 }
 
 div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */

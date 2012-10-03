@@ -53,6 +53,7 @@ features[variable][] = node_options_lended_book
 features[variable][] = node_preview_lended_book
 features[variable][] = node_submitted_lended_book
 features[variable][] = site_slogan
+features[variable][] = theme_bibliotheme_settings
 features[views_view][] = borrowed_books
 features[views_view][] = enter_a_new_book
 features[views_view][] = overdue_books
