@@ -101,6 +101,11 @@ h2.block-title {
     /* "Main menu" block */
 }
 
+#block-menu-menu-main-menu-custom {
+    width: 100px;
+
+}
+
 #block-system-management {
     /* "Management" block for Drupal management menu */
 }

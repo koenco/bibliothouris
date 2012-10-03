@@ -1,6 +1,6 @@
 <?php
 
-function bibliotheme_preprocess_html(&$vars) {
+/*function bibliotheme_preprocess_html(&$vars) {
   $file = theme_get_setting('theme_color') . '-style.css';
   drupal_add_css(path_to_theme() . '/css/' . $file, array(
     'group' => CSS_THEME,
@@ -8,7 +8,7 @@ function bibliotheme_preprocess_html(&$vars) {
     'browsers' => array(),
     'preprocess' => FALSE
   ));
-}
+}*/
 
 function bibliotheme_preprocess_user_profile(&$variables) {
   $account = menu_get_object('user');
