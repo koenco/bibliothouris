@@ -1,11 +1,9 @@
 <?php
 module_load_include('test', 'simpletest_clone');
 
-class BibliothourisDataTestCase extends SimpleTestCloneTestCase
-{
+class BibliothourisDataTestCase extends SimpleTestCloneTestCase {
 
-  public static function getInfo()
-  {
+  public static function getInfo() {
     return array(
       'name' => 'Import data test',
       'description' => 'Test the import of data',
@@ -13,13 +11,11 @@ class BibliothourisDataTestCase extends SimpleTestCloneTestCase
     );
   }
 
-  public function setUp()
-  {
+  public function setUp() {
     parent::setup('bibliothouris_data');
   }
 
-  function testDataImport()
-  {
+  function testDataImport() {
     $query = db_query('SELECT field_last_name_value
       FROM field_data_field_last_name WHERE entity_id = 1')->fetchCol();
     $this->assertEqual('Crijns', $query[0], 'User found');
@@ -32,7 +28,7 @@ class BibliothourisDataTestCase extends SimpleTestCloneTestCase
       FROM field_data_field_street_number WHERE entity_id = 3')->fetchCol();
     $this->assertEqual('Kerkstraat 9', $query[0], 'Street + number found');
 
-    $query = db_query('SELECT holiday_name FROM bibliothouris_data_holiday')->fetchCol();
+    $query = db_query('SELECT holiday_name FROM {bibliothouris_data_holiday}')->fetchCol();
     $holidays = array
     ('Nieuwjaar',
       'Pasen',
