@@ -134,5 +134,12 @@ function bibliothouris_views_strongarm() {
   $strongarm->value = 0;
   $export['node_submitted_lended_book'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_slogan';
+  $strongarm->value = 'By Cegeka';
+  $export['site_slogan'] = $strongarm;
+
   return $export;
 }
