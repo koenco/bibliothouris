@@ -14,6 +14,10 @@ function bibliothouris_views_default_fe_block_settings() {
 
   // Theme independent visibility settings.
   $export['visibility'] = array(
+    'menu-menu-main-menu-custom' => array(
+      'delta' => 'menu-main-menu-custom',
+      'module' => 'menu',
+    ),
     'search-form' => array(
       'delta' => 'form',
       'module' => 'search',
@@ -54,6 +58,20 @@ function bibliothouris_views_default_fe_block_settings() {
 
   // bartik
   $theme = array();
+
+  $theme['menu-menu-main-menu-custom'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-main-menu-custom',
+    'theme' => 'bartik',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
 
   $theme['search-form'] = array(
     'module' => 'search',
@@ -186,6 +204,20 @@ function bibliothouris_views_default_fe_block_settings() {
   // bibliotheme
   $theme = array();
 
+  $theme['menu-menu-main-menu-custom'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-main-menu-custom',
+    'theme' => 'bibliotheme',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'header',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
   $theme['search-form'] = array(
     'module' => 'search',
     'delta' => 'form',
@@ -316,6 +348,20 @@ function bibliothouris_views_default_fe_block_settings() {
 
   // seven
   $theme = array();
+
+  $theme['menu-menu-main-menu-custom'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-main-menu-custom',
+    'theme' => 'seven',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
 
   $theme['search-form'] = array(
     'module' => 'search',

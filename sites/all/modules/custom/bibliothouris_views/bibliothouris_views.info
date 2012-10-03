@@ -15,6 +15,7 @@ dependencies[] = user_reference
 dependencies[] = views
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
+features[fe_block_settings][] = menu-menu-main-menu-custom
 features[fe_block_settings][] = search-form
 features[fe_block_settings][] = system-main
 features[fe_block_settings][] = system-powered-by
