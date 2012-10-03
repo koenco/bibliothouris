@@ -7,6 +7,9 @@
  * ul.links, .pager, .more-link, etc.
  */
 
+#first-time {
+    display: none;
+}
 
 /*
  * Body

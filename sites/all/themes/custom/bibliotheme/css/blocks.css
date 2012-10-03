@@ -148,6 +148,14 @@ h2.block-title {
 
 #block-user-login {
     /* "User login form" block */
+    padding-left: 5px;
+}
+#block-user-login a:visited {
+    color: blue;
+}
+
+#secondary-menu a:link, #secondary-menu a:visited {
+    color: #ffffff;
 }
 
 #block-user-new {
@@ -156,4 +164,8 @@ h2.block-title {
 
 #block-user-online {
     /* "Who's online" block for a list of the online users */
+}
+
+#block-views-top-10-viewed-books-block a:link, #block-views-top-10-viewed-books-block a:visited, #block-views-top-10-borrowed-books-block a:link, #block-views-top-10-borrowed-books-block a:visited {
+    color: #000000;
 }
