@@ -40,16 +40,22 @@
 
 .node-teaser { /* A node displayed as teaser */
     text-align: center;
+    transition: box-shadow, transform 1s;
     -moz-transition:  -moz-box-shadow, -moz-transform 1s;
+    -webkit-transition:  -webkit-box-shadow, -webkit-transform 1s;
+    -o-transition-property:-o-box-shadow, -o-transform;
+    -o-transition-duration:1s;
 }
 
 .node-teaser:hover {
     z-index: 1;
     -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
     -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -o-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
     box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
     -webkit-transform: scale(1.5);
     -moz-transform: scale(1.5);
+    -o-transform: scale(1.5);
     transform: scale(1.5);
     background-color: #eee;
     border:1px solid #000000;
