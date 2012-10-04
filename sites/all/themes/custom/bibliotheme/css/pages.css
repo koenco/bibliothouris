@@ -173,6 +173,7 @@ tr:hover, tr a:hover {
     -moz-border-radius:25px; /* Firefox 3.6 and earlier */
     -o-border-radius:25px;
     -webkit-border-radius:25px;
+    padding: 15px;
 }
 
 
