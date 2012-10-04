@@ -132,7 +132,7 @@ function bibliothouris_views_block_view_alter(&$data, $block) {
   if (isset($data['subject']) && ($data['subject'] == "Enter a new book" || $data['subject'] == 'Borrowed books')) {
     ////HACKY: the view ignores the [bib:uid] token so we replace it with the id from the url
     ///Only works first time table is made
-    $data['content']['#markup'] = str_replace('%5Bbib%3Auid%5D', '', $data['content']['#markup']);
+    $data['content']['#markup'] = str_replace('%5Bbib%3Auid%5D', arg(1), $data['content']['#markup']);
   }
 
 }
