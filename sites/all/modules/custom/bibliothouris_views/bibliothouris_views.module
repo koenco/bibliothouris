@@ -124,7 +124,11 @@ function bibliothouris_views_views_ajax_data_alter(&$commands, $view) {
   if ($view->name == 'enter_a_new_book' || $view->name == 'borrowed_books') {
     ////HACKY: the view ignores the [bib:uid] token so we replace it with the id from the url
     ///Does this after every ajax request
-    $commands[1]['data'] = str_replace('%5Bbib%3Auid%5D', arg(1), $commands[1]['data']);
+    if (is_numeric(arg(1))) {
+      $commands[1]['data'] = str_replace('%5Bbib%3Auid%5D', arg(1), $commands[1]['data']);
+    } else {
+      $commands[1]['data'] = str_replace('%5Bbib%3Auid%5D', '', $commands[1]['data']);
+    }
   }
 }
 
@@ -132,7 +136,9 @@ function bibliothouris_views_block_view_alter(&$data, $block) {
   if (isset($data['subject']) && ($data['subject'] == "Enter a new book" || $data['subject'] == 'Borrowed books')) {
     ////HACKY: the view ignores the [bib:uid] token so we replace it with the id from the url
     ///Only works first time table is made
-    $data['content']['#markup'] = str_replace('%5Bbib%3Auid%5D', arg(1), $data['content']['#markup']);
+    if (is_numeric(arg(1))) {
+      $data['content']['#markup'] = str_replace('%5Bbib%3Auid%5D', '', $data['content']['#markup']);
+    }
   }
 
 }

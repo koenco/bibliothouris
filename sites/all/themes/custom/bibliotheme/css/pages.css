@@ -113,12 +113,14 @@ body {
     margin: 0px;
     margin-left: 20px;
     padding: 0;
+    padding-top: 15px;
     font: 20px Verdana;
     list-style-type: none;
+    width: 300px;
 }
 
 #block-menu-menu-main-menu-custom ul li {
-    display: table-cell;
+    display: inline;
     padding: 15px;
 
 }
@@ -171,7 +173,6 @@ tr:hover, tr a:hover {
     border:2px solid;
     border-radius:25px;
     -moz-border-radius:25px; /* Firefox 3.6 and earlier */
-    -o-border-radius:25px;
     -webkit-border-radius:25px;
     padding: 15px;
 }
