@@ -158,9 +158,18 @@ h2.block-title {
 #block-user-login {
     /* "User login form" block */
     padding-left: 5px;
+    border:2px solid black;
+    border-radius:25px;
+    background-color: #CCC;
+    color: #FFF;
 }
+
+#block-user-login h2 {
+    padding: 5px;
+}
+
 #block-user-login a:visited {
-    color: blue;
+    color: #000000;
 }
 
 #secondary-menu a:link, #secondary-menu a:visited {
