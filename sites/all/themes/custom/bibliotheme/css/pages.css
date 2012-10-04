@@ -133,15 +133,21 @@ body {
 }
 
 #block-menu-menu-main-menu-custom ul li {
-    -moz-transition: -moz-transform 1s
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    -webkit-transition: -webkit-transform 1s;
 }
 
 #block-menu-menu-main-menu-custom ul li:hover {
     -moz-transform:scale(1.25);
+    -o-transform:scale(1.25);
+    -webkit-transform:scale(1.25);
 }
 
 tr, tr a {
     -moz-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    -webkit-transition: color 0.5s;
 }
 
 tr:hover, tr a:hover {
@@ -165,9 +171,10 @@ tr:hover, tr a:hover {
     border:2px solid;
     border-radius:25px;
     -moz-border-radius:25px; /* Firefox 3.6 and earlier */
+    -o-border-radius:25px;
+    -webkit-border-radius:25px;
 }
 
-}
 
 .region-highlighted {
 }
@@ -337,3 +344,4 @@ span.field-label { /* The inline field label used by the Fences module */
 .green {
     color: #008000;
 }
+
