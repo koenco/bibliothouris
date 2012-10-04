@@ -119,7 +119,8 @@ h2.block-title {
     border-radius:25px;
     background-color: #CCC;
     color: #FFF;
-}
+    padding: 5px;
+}   
 
 #block-menu-menu-navigation-custom h2{
     margin-left: 10px;

@@ -165,8 +165,8 @@ function bibliothouris_views_default_fe_block_settings() {
     'weight' => '0',
     'region' => '',
     'custom' => '0',
-    'visibility' => '0',
-    'pages' => 'user/*',
+    'visibility' => '1',
+    'pages' => 'user/%user',
     'title' => '',
     'cache' => -1,
   );
@@ -311,7 +311,7 @@ function bibliothouris_views_default_fe_block_settings() {
     'region' => 'content',
     'custom' => '0',
     'visibility' => '1',
-    'pages' => 'user/*',
+    'pages' => 'user/%user',
     'title' => '',
     'cache' => -1,
   );
@@ -455,8 +455,8 @@ function bibliothouris_views_default_fe_block_settings() {
     'weight' => '0',
     'region' => '',
     'custom' => '0',
-    'visibility' => '0',
-    'pages' => 'user/*',
+    'visibility' => '1',
+    'pages' => 'user/%user',
     'title' => '',
     'cache' => -1,
   );
