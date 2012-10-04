@@ -45,6 +45,8 @@
     -webkit-transition:  -webkit-box-shadow, -webkit-transform 1s;
     -o-transition-property:-o-box-shadow, -o-transform;
     -o-transition-duration:1s;
+    float: none;
+    width: 100%;
 }
 
 .node-teaser:hover {
@@ -58,7 +60,6 @@
     -o-transform: scale(1.5);
     transform: scale(1.5);
     background-color: #eee;
-    border:1px solid #000000;
 }
 
 /*

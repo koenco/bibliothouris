@@ -23,7 +23,7 @@ drush site-install --db-url=mysql://$mysql_username:$mysql_password@$mysql_db --
 # comment the chmod when deploying
 # or maybe this will fix permissions
 # maybe not
-chown www-data:www-data -R files 
+chown www-data:www-data -R sites/files
 
 #drush en alphorn -y
 #drush vset theme_default alphorn
