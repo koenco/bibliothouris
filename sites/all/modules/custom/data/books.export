@@ -77,9 +77,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0201708424',
+            'value' => '9780201708424',
             'format' => NULL,
-            'safe_value' => '978-0201708424',
+            'safe_value' => '9780201708424',
           ),
         ),
       ),
@@ -270,9 +270,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0321278654',
+            'value' => '9780321278654',
             'format' => NULL,
-            'safe_value' => '978-0321278654',
+            'safe_value' => '9780321278654',
           ),
         ),
       ),
@@ -463,9 +463,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0321150783',
+            'value' => '9780321150783',
             'format' => NULL,
-            'safe_value' => '978-0321150783',
+            'safe_value' => '9780321150783',
           ),
         ),
       ),
@@ -656,9 +656,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0978739249',
+            'value' => '9780978739249',
             'format' => NULL,
-            'safe_value' => '978-0978739249',
+            'safe_value' => '9780978739249',
           ),
         ),
       ),
@@ -849,9 +849,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0201616224',
+            'value' => '9780201616224',
             'format' => NULL,
-            'safe_value' => '978-0201616224',
+            'safe_value' => '9780201616224',
           ),
         ),
       ),
@@ -1042,9 +1042,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0596527679',
+            'value' => '9780596527679',
             'format' => NULL,
-            'safe_value' => '978-0596527679',
+            'safe_value' => '9780596527679',
           ),
         ),
       ),
@@ -1235,9 +1235,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0321146533',
+            'value' => '9780321146533',
             'format' => NULL,
-            'safe_value' => '978-0321146533',
+            'safe_value' => '9780321146533',
           ),
         ),
       ),
@@ -1428,9 +1428,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0974514086',
+            'value' => '9780974514086',
             'format' => NULL,
-            'safe_value' => '978-0974514086',
+            'safe_value' => '9780974514086',
           ),
         ),
       ),
@@ -1621,9 +1621,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0321482754',
+            'value' => '9780321482754',
             'format' => NULL,
-            'safe_value' => '978-0321482754',
+            'safe_value' => '9780321482754',
           ),
         ),
       ),
@@ -1814,9 +1814,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0321336385',
+            'value' => '9780321336385',
             'format' => NULL,
-            'safe_value' => '978-0321336385',
+            'safe_value' => '9780321336385',
           ),
         ),
       ),
@@ -2007,9 +2007,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0201699470',
+            'value' => '9780201699470',
             'format' => NULL,
-            'safe_value' => '978-0201699470',
+            'safe_value' => '9780201699470',
           ),
         ),
       ),
@@ -2200,9 +2200,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0977616640',
+            'value' => '9780977616640',
             'format' => NULL,
-            'safe_value' => '978-0977616640',
+            'safe_value' => '9780977616640',
           ),
         ),
       ),
@@ -2393,9 +2393,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0321219770',
+            'value' => '9780321219770',
             'format' => NULL,
-            'safe_value' => '978-0321219770',
+            'safe_value' => '9780321219770',
           ),
         ),
       ),
@@ -2586,9 +2586,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0130676344',
+            'value' => '9780130676344',
             'format' => NULL,
-            'safe_value' => '978-0130676344',
+            'safe_value' => '9780130676344',
           ),
         ),
       ),
@@ -2779,9 +2779,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0735619937',
+            'value' => '9780735619937',
             'format' => NULL,
-            'safe_value' => '978-0735619937',
+            'safe_value' => '9780735619937',
           ),
         ),
       ),
@@ -2972,9 +2972,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0131111554',
+            'value' => '9780131111554',
             'format' => NULL,
-            'safe_value' => '978-0131111554',
+            'safe_value' => '9780131111554',
           ),
         ),
       ),
@@ -3156,9 +3156,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0321205681 ',
+            'value' => '9780321205681 ',
             'format' => NULL,
-            'safe_value' => '978-0321205681 ',
+            'safe_value' => '9780321205681 ',
           ),
         ),
       ),
@@ -3349,9 +3349,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0131479418',
+            'value' => '9780131479418',
             'format' => NULL,
-            'safe_value' => '978-0131479418',
+            'safe_value' => '9780131479418',
           ),
         ),
       ),
@@ -3542,9 +3542,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0201485677',
+            'value' => '9780201485677',
             'format' => NULL,
-            'safe_value' => '978-0201485677',
+            'safe_value' => '9780201485677',
           ),
         ),
       ),
@@ -3735,9 +3735,9 @@ array(
       'field_isbn' => array(
         'und' => array(
           array(
-            'value' => '978-0135974445',
+            'value' => '9780135974445',
             'format' => NULL,
-            'safe_value' => '978-0135974445',
+            'safe_value' => '9780135974445',
           ),
         ),
       ),
