@@ -126,6 +126,8 @@ function bibliothouris_views_views_ajax_data_alter(&$commands, $view) {
     ///Does this after every ajax request
     if (is_numeric(arg(1))) {
       $commands[1]['data'] = str_replace('%5Bbib%3Auid%5D', arg(1), $commands[1]['data']);
+    } else {
+      $commands[1]['data'] = str_replace('%5Bbib%3Auid%5D', '', $commands[1]['data']);
     }
   }
 }
@@ -135,7 +137,7 @@ function bibliothouris_views_block_view_alter(&$data, $block) {
     ////HACKY: the view ignores the [bib:uid] token so we replace it with the id from the url
     ///Only works first time table is made
     if (is_numeric(arg(1))) {
-      $data['content']['#markup'] = str_replace('%5Bbib%3Auid%5D', arg(1), $data['content']['#markup']);
+      $data['content']['#markup'] = str_replace('%5Bbib%3Auid%5D', '', $data['content']['#markup']);
     }
   }
 
