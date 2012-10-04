@@ -101,7 +101,7 @@ function bibliotouris_book_default_fe_block_settings() {
     'delta' => 'menu-navigation-custom',
     'theme' => 'bibliotheme',
     'status' => '1',
-    'weight' => '-13',
+    'weight' => '-15',
     'region' => 'sidebar_first',
     'custom' => '0',
     'visibility' => '0',
