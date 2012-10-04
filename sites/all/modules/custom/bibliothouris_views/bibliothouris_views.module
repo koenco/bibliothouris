@@ -370,7 +370,6 @@ function getTimesLendedOut($bookid) {
 function getNumberOfBooks($bookid) {
   return db_query("SELECT field_number_of_books_value FROM {field_data_field_number_of_books}
     WHERE entity_id = :bid", array('bid' => $bookid))->fetchField();
-  ;
 }
 
 function numberOfLendedBooks($userid) {
