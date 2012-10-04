@@ -15,15 +15,7 @@ site_name='Bibliothouris'		# the site's name
 # 			Don't edit anything below this line				      #
 #---------------------------------------------------------------------------------------------#
 
-CURRENT=`pwd`
-BASENAME=`basename $CURRENT`
-
-if [ $BASENAME == "buildscripts" ]; then
-	cd ..
-else
-	cd dirname $0
-	cd ..
-fi
+cd $document_root/$install_folder
 
 #mkdir $document_root/$install_folder
 #cd $document_root/$install_folder
@@ -40,7 +32,7 @@ drush site-install --db-url=mysql://$mysql_username:$mysql_password@$mysql_db --
 # comment the chmod when deploying
 # or maybe this will fix permissions
 # maybe not
-chown www-data:www-data -R sites/files 
+#chown www-data:www-data -R sites/files 
 
 #drush en alphorn -y
 #drush vset theme_default alphorn
