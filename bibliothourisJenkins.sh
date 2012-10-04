@@ -30,7 +30,7 @@ chown www-data:www-data -R files
 drush en bibliotheme -y
 drush vset theme_default bibliotheme
 
-drush en uuid diff devel devel_generate masquerade simpletest fe_block entitycache views_ui node_export date date_popup uuid_features phone genpass email_registration autoassignrole administerusersbyrole simpletest_clone omega_tools auto_nodetitle references user_reference node_reference statistics clientside_validation_field_validation field_validation_ui -y
+drush en uuid diff devel devel_generate masquerade simpletest fe_block entitycache views_ui node_export date date_popup uuid_features phone genpass email_registration autoassignrole administerusersbyrole simpletest_clone omega_tools auto_nodetitle references user_reference node_reference statistics clientside_validation_field_validation field_validation_ui php -y
 
 drush en bibliotouris_book -y
 drush en bibliothouris_user -y
