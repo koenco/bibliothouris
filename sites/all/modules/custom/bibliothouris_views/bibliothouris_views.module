@@ -334,7 +334,7 @@ function bibliothouris_views_lendabook($bookid, $userid, $redirect = TRUE, $star
   }
   else {
     $id = 0;
-    drupal_set_message(check_plain('User already has ' . $numberOfBooks . ' books', 'error'));
+    drupal_set_message('User already has ' . $numberOfBooks . ' books', 'error');
   }
   if ($redirect) {
     drupal_goto('user/' . $userid);
