@@ -192,6 +192,7 @@ h2.block-title {
 .views-view-grid {
     border: 0px;
     width: 100%;
+    margin: 0px;
 }
 
 .views-view-grid img {
