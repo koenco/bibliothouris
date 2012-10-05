@@ -53,7 +53,6 @@ function bibliotouris_book_node_validate($node, $form, &$form_state) {
     }
   }
 }
-
 function bibliotouris_book_menu() {
   $items['autocomplete/book/isbn'] = array(
     'page callback' => 'autocomplete_book_isbn',
@@ -75,7 +74,63 @@ function bibliotouris_book_menu() {
     'access callback' => TRUE,
     'weight' => 1,
   );
+
+  $items['stats'] = array(
+    'page callback' => 'show_stats',
+    'access callback' => TRUE,
+    'weight' => 1,
+  );
   return $items;
+}
+
+function show_stats() {
+  $js = "<script language=javascript>
+var c=document.getElementById('myCanvas');
+var width=c.width -10;
+var height=c.height - 50;
+var ctx=c.getContext('2d');
+ctx.fillStyle='#OO0000';".
+get_stats().
+"var barWidth = width/count.length;
+var max = 0;
+for (var i=0; i<count.length;i++) {
+  if (count[i] > max) {
+    max = count[i];
+  }
+}
+var barHeight=height/max;
+for (var i=0; i<count.length; i++) {
+    var x=i*30;
+    ctx.fillRect(i*barWidth + 10,height+ 25,barWidth-4,count[i] * -1 * barHeight);
+    ctx.fillText(days[i], i*barWidth + 10,height + 40 );
+}
+</script>";
+  $canvas = '<h1>Stats of lended books</h1></h1><canvas id="myCanvas" width="920px" height="300px"
+style="border:1px solid #000000; background-color: #ffffff;" >
+</canvas>';
+  return $canvas.$js;
+}
+
+function get_stats() {
+  $query = "SELECT count(*) as 'count', sd.field_start_date_value as 'day' FROM {node} n
+JOIN {field_data_field_start_date} sd
+ON n.nid = sd.entity_id
+WHERE n.type = 'lended_book'
+    AND sd.field_start_date_value > ADDDATE(SYSDATE(), '-100 days')
+GROUP BY sd.field_start_date_value";
+  $results = db_query($query)->fetchAll();
+  $days = array();
+  $count = array();
+  foreach($results as $day) {
+    $d = $day->day;
+    $d = str_replace(array('2012-','2013-'), '"', $d);
+    $d = str_replace(' 00:00:00', '"', $d);
+   $days[] = $d;
+   $count[] = $day->count;
+  }
+  $countstring = implode(', ', $count);
+  $daystring = implode(', ', $days);
+  return "var count = new Array($countstring); var days = new Array($daystring);";
 }
 
 function autocomplete_book_isbn($string = '') {
