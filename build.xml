@@ -1,50 +1,90 @@
 <project name="Bibliothouris_jenkins" default="build" basedir=".">
+	<property environment="env" />
 
-	<target name="build" depends="testing, selenium, phpcs, phpcs2, phpmd, phpcpd">
+	<target name="build" depends="init, git, siteinstall, testing, selenium, phpcs, phpcs2, phpmd, phpcpd, copytestfiles">
+	</target>
+
+	<target name="copytestfiles">
+		<mkdir dir="${env.WORKSPACE}/../jenkins_logs/${env.BUILD_TAG}" />
+		<copy todir="${env.WORKSPACE}/../jenkins_logs/${env.BUILD_TAG}">
+			<fileset dir="${env.WORKSPACE}/build">
+				<exclude name="ruleset.xml" />
+			</fileset>
+			<fileset dir="${env.WORKSPACE}/selenium_tests/results" />
+		</copy>
+	</target>
+
+	<target name="siteinstall">
+		<exec executable="sh" dir="${env.WORKSPACE}">
+			<arg value="-c" />
+			<arg value="cat ${env.JENKINS_HOME}/pwd | sudo -S ./bibliothourisJenkins.sh" />
+		</exec>
+	</target>
+
+	<target name="git" depends="gitinit">
+		<exec executable="git" dir="${env.WORKSPACE}">
+			<arg line="pull https://github.com/koenco/bibliothouris.git master" />
+		</exec>
+	</target>
+
+	<target name="gitinit">
+		<exec executable="git" dir="${env.WORKSPACE}">
+			<arg value="init" />
+		</exec>
+	</target>
+
+	<target name="init">
+		<delete includeEmptyDirs="false" failonerror="false">
+			<fileset dir="${env.WORKSPACE}/build/logs" includes="*" />
+			<fileset dir="${env.WORKSPACE}/build/logs/simpletest" includes="*" />
+			<fileset dir="${env.WORKSPACE}/selenium_tests/results" includes="*" />
+		</delete>
+		<mkdir dir="${env.WORKSPACE}/selenium_tests/results" />
+		<mkdir dir="${env.WORKSPACE}/build/logs" />
+		<mkdir dir="${env.WORKSPACE}/build/logs/simpletest" />
 	</target>
 
 	<target name="testing">
-		<exec executable="sh" dir="/var/www/bibliothouris_jenkins">
+		<exec executable="sh" dir="${env.WORKSPACE}">
 			<arg value="-c" />
-			<arg value="cat /var/lib/jenkins/pwd | sudo -S php scripts/run-tests.sh --php /usr/bin/php --xml /var/www/bibliothouris_jenkins/results --url http://localhost/bibliothouris_jenkins Bibliothouris" />
+			<arg value="cat /var/lib/jenkins/pwd | sudo -S php scripts/run-tests.sh --php /usr/bin/php --xml ${env.WORKSPACE}/build/logs/simpletest --url http://localhost/bibliothouris_jenkins Bibliothouris" />
 		</exec>
-		<exec executable="whoami" />
 	</target>
 
 	<target name="selenium">
 		<exec executable="sh">
 			<arg value="-c" />
-			<arg value='export DISPLAY=":99" &amp;&amp; java -jar /home/koenc/Desktop/selenium-server-standalone-2.25.0.jar -htmlSuite "*firefox" "http://localhost" /var/www/bibliothouris_jenkins/selenium_tests/testSuite.html /var/www/bibliothouris_jenkins/selenium_tests/results/results.html' />
+			<arg value='export DISPLAY=":99" &amp;&amp; java -jar /home/koenc/Desktop/selenium-server-standalone-2.25.0.jar -htmlSuite "*firefox" "http://localhost" ${env.WORKSPACE}/selenium_tests/testSuite.html ${env.WORKSPACE}/selenium_tests/results/results.html' />
 		</exec>	
 	</target>
 
 	<target name="phpcs">
 		<exec executable="phpcs"> 
 			<arg line="--report=checkstyle
-              			--report-file=/var/www/bibliothouris_jenkins/build/logs/checkstyle_modules.xml
-              			--standard=/var/www/bibliothouris_jenkins/build/ruleset.xml
-				/var/www/bibliothouris_jenkins/sites/all/modules/custom" />
+              			--report-file=${env.WORKSPACE}/build/logs/checkstyle_modules.xml
+              			--standard=${env.WORKSPACE}/build/ruleset.xml
+				${env.WORKSPACE}/sites/all/modules/custom" />
 		</exec>
 	</target>
 
 	<target name="phpcs2">
 		<exec executable="phpcs"> 
 			<arg line="--report=checkstyle
-              			--report-file=/var/www/bibliothouris_jenkins/build/logs/checkstyle_themes.xml
-              			--standard=/var/www/bibliothouris_jenkins/build/ruleset.xml
-				/var/www/bibliothouris_jenkins/sites/all/themes/custom" />
+              			--report-file=${env.WORKSPACE}/build/logs/checkstyle_themes.xml
+              			--standard=${env.WORKSPACE}/build/ruleset.xml
+				${env.WORKSPACE}/sites/all/themes/custom" />
 		</exec>
 	</target>
 
 	<target name="phpmd">
 		<exec executable="phpmd">
-			<arg line="--suffixes tpl.php,module,info,php /var/www/bibliothouris_jenkins/sites/all/modules/custom/ html codesize,unusedcode,naming,design,controversial --reportfile /var/www/bibliothouris_jenkins/build/logs/messdetector.html" />
+			<arg line="--suffixes tpl.php,module,info,php ${env.WORKSPACE}/sites/all/modules/custom/ html codesize,unusedcode,naming,design,controversial --reportfile ${env.WORKSPACE}/build/logs/messdetector.html" />
 		</exec>
 	</target>
 
 	<target name="phpcpd">
 		<exec executable="phpcpd">
-			<arg line="--suffixes tpl.php,module,info,php --log-pmd /var/www/bibliothouris_jenkins/build/logs/cpdetector /var/www/bibliothouris_jenkins/sites/all/modules/custom/" />
+			<arg line="--suffixes tpl.php,module,info,php --log-pmd ${env.WORKSPACE}/build/logs/cpdetector ${env.WORKSPACE}/sites/all/modules/custom/" />
 		</exec>
 	</target>
 
