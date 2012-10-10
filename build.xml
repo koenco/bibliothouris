@@ -1,7 +1,7 @@
 <project name="Bibliothouris_jenkins" default="build" basedir=".">
 	<property environment="env" />
 
-	<target name="build" depends="init, git, siteinstall, testing, selenium, phpcs, phpcs2, phpmd, phpcpd, copytestfiles">
+	<target name="build" depends="init, git, siteinstall, testing, selenium, phpcs, phpmd, phpcpd, copytestfiles">
 	</target>
 
 	<target name="copytestfiles">
@@ -61,24 +61,23 @@
 	<target name="phpcs">
 		<exec executable="phpcs"> 
 			<arg line="--report=checkstyle
+				--extensions=tpl.php,module,php
               			--report-file=${env.WORKSPACE}/build/logs/checkstyle_modules.xml
-              			--standard=${env.WORKSPACE}/build/ruleset.xml
+              			--standard=/var/www/coder/coder_sniffer/Drupal
 				${env.WORKSPACE}/sites/all/modules/custom" />
 		</exec>
-	</target>
-
-	<target name="phpcs2">
 		<exec executable="phpcs"> 
 			<arg line="--report=checkstyle
+				--extensions=tpl.php,module,php
               			--report-file=${env.WORKSPACE}/build/logs/checkstyle_themes.xml
-              			--standard=${env.WORKSPACE}/build/ruleset.xml
+              			--standard=/var/www/coder/coder_sniffer/Drupal
 				${env.WORKSPACE}/sites/all/themes/custom" />
 		</exec>
 	</target>
 
 	<target name="phpmd">
 		<exec executable="phpmd">
-			<arg line="--suffixes tpl.php,module,info,php ${env.WORKSPACE}/sites/all/modules/custom/ html codesize,unusedcode,naming,design,controversial --reportfile ${env.WORKSPACE}/build/logs/messdetector.html" />
+			<arg line="--suffixes tpl.php,module,info,php ${env.WORKSPACE}/sites/all/modules/custom/ xml codesize,unusedcode,naming,design --reportfile ${env.WORKSPACE}/build/logs/messdetector.xml" />
 		</exec>
 	</target>
 
