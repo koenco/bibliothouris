@@ -210,7 +210,6 @@ function autocomplete_book_lastname($string = '') {
     $items = array();
     if (isset($string)) {
 
-
       $query = db_select('field_data_field_author_last_name', 'ln');
       $value = $query->leftJoin('field_data_field_author_first_name', 'fn', 'ln.entity_id = fn.entity_id');
       $value = $query->join('field_data_field_isbn', 'isb', 'ln.entity_id = isb.entity_id');

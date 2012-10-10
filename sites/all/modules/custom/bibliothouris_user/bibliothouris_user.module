@@ -5,12 +5,13 @@
  */
 
 function bibliothouris_user_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'user_register_form'){
+  if ($form_id == 'user_register_form') {
     hide_roles($form);
     select_automatic_email($form);
     select_member_role($form);
     $form['#validate'][] = 'bibliothouris_user_user_register_validate';
-  }elseif ( $form_id == 'user_profile_form') {
+  }
+  elseif ($form_id == 'user_profile_form') {
     hide_roles($form);
     $form['#validate'][] = 'bibliothouris_user_user_register_validate';
   }
@@ -23,10 +24,10 @@ function hide_roles(&$form) {
   $admin = db_query("SELECT rid FROM {role} WHERE name = :name", array('name' => "administrator"))->fetchField();
   $authenticated_user = db_query("SELECT rid FROM {role} WHERE name = :name", array('name' => "authenticated user"))->fetchField();
 
-  $is_admin = false;
-  foreach($roles as $role) {
+  $is_admin = FALSE;
+  foreach ($roles as $role) {
     if ($role == "administrator") {
-      $is_admin = true;
+      $is_admin = TRUE;
     }
   }
   if (!$is_admin) {
@@ -47,7 +48,7 @@ function select_member_role(&$form) {
 }
 
 function bibliothouris_user_user_register_validate($form, &$form_state) {
-  $national_number =  $form_state['values']['field_national_number']['und']['0']['value'];
+  $national_number = $form_state['values']['field_national_number']['und']['0']['value'];
   $birthday = $form_state['values']['field_date_of_birth']['und']['0']['value'];
 
   validate_national_number($national_number, $birthday);
@@ -55,58 +56,62 @@ function bibliothouris_user_user_register_validate($form, &$form_state) {
 }
 
 function bibliothouris_user_views_pre_render(&$view) {
-    if ($view->name == 'show_all_members') {
-        foreach ($view->result as $member) {
-            $uid = $member->uid;
+  if ($view->name == 'show_all_members') {
+    foreach ($view->result as $member) {
+      $uid = $member->uid;
 
-            foreach ($member as $variable => $value) {
-                if ($variable != "uid" && is_array($value)){
-                    if (isset($value['0'])) {
-                        $raw = $value['0']['rendered']['#markup'];
-                        $url = "<a href='user/$uid'>$raw</a>";
-                        $member->{$variable}['0']['rendered']['#markup'] = $url;
-                    }
-                }
-            }
+      foreach ($member as $variable => $value) {
+        if ($variable != "uid" && is_array($value)) {
+          if (isset($value['0'])) {
+            $raw = $value['0']['rendered']['#markup'];
+            $url = "<a href='user/$uid'>$raw</a>";
+            $member->{$variable}['0']['rendered']['#markup'] = $url;
+          }
         }
+      }
     }
+  }
 }
 
 function validate_national_number($national_number, $birthday) {
-  if ($national_number != null && $birthday != null) {
+  if ($national_number != NULL && $birthday != NULL) {
     $national_number = str_replace(array("-", " ", "."), "", $national_number);
     if (strlen($national_number) != 11) {
       form_set_error('field_national_number', 'National number must contain 11 numbers.');
-      return false;
-    }elseif (is_numeric($national_number)){
-      $year = substr($birthday, 2,2);
-      $month = substr($birthday, 5,2);
-      $day = substr($birthday, 8,2);
-      $start_national_number = "$year"."$month"."$day";
-      if (substr($national_number, 0, strlen($start_national_number)) != $start_national_number){
+      return FALSE;
+    }
+    elseif (is_numeric($national_number)) {
+      $year = substr($birthday, 2, 2);
+      $month = substr($birthday, 5, 2);
+      $day = substr($birthday, 8, 2);
+      $start_national_number = "$year" . "$month" . "$day";
+      if (substr($national_number, 0, strlen($start_national_number)) != $start_national_number) {
         form_set_error('field_national_number', 'National number does not match day of birth.');
-        return false;
-      } else {
-        $entered_check = substr($national_number,9,2);
-        $order = substr($national_number,6,3);
-        $start_national_number ="$start_national_number"."$order";
-        if (substr($birthday,0,1) == 2) {
-          $start_national_number = "2"."$start_national_number";
+        return FALSE;
+      }
+      else {
+        $entered_check = substr($national_number, 9, 2);
+        $order = substr($national_number, 6, 3);
+        $start_national_number = "$start_national_number" . "$order";
+        if (substr($birthday, 0, 1) == 2) {
+          $start_national_number = "2" . "$start_national_number";
         }
         $modulus = $start_national_number % 97;
         $wanted_check = 97 - $modulus;
 
         if ($wanted_check != $entered_check) {
           form_set_error('field_national_number', "Invalid national number.");
-          return false;
+          return FALSE;
         }
       }
-    } else {
-      form_set_error('field_national_number', 'National number can only contain numbers, spaces, dashes.');
-      return false;
     }
-  } else {
-    return false;
+    else {
+      form_set_error('field_national_number', 'National number can only contain numbers, spaces, dashes.');
+      return FALSE;
+    }
   }
-  return true;
+  else {
+    return FALSE;
+  }
+  return TRUE;
 }
